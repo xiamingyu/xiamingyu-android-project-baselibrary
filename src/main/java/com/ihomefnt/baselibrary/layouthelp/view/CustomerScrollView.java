@@ -1,0 +1,54 @@
+package com.ihomefnt.baselibrary.layouthelp.view;
+
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.ViewConfiguration;
+import android.widget.ScrollView;
+
+/**
+ * Created by XiaMingYu on 2017/1/6.
+ */
+public class CustomerScrollView extends ScrollView {
+    private int downX;
+    private int downY;
+    private int mTouchSlop;
+
+    public CustomerScrollView(Context context) {
+        super(context);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    }
+
+    public CustomerScrollView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    }
+
+    public CustomerScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent e) {
+        int action = e.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                downX = (int) e.getRawX();
+                downY = (int) e.getRawY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int moveY = (int) e.getRawY();
+                if (Math.abs(moveY - downY) > mTouchSlop) {
+                    return true;
+                }
+        }
+        return super.onInterceptTouchEvent(e);
+    }
+
+    @Override
+    protected boolean onRequestFocusInDescendants(int direction, Rect previouslyFocusedRect) {
+        return true;
+    }
+}
