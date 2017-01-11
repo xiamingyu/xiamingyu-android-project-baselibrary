@@ -18,11 +18,11 @@ public class HttpRequestURL {
      * @param baseUrl
      * @param httpMethod
      */
-    private HttpRequestURL(String baseUrl, int httpMethod) {
+    protected HttpRequestURL(String baseUrl, int httpMethod) {
         this(baseUrl, httpMethod, DEFAULT_TIME_OUT);
     }
 
-    private HttpRequestURL(String baseUrl) {
+    protected HttpRequestURL(String baseUrl) {
         this(baseUrl, Request.Method.GET, DEFAULT_TIME_OUT);
     }
 
@@ -31,15 +31,15 @@ public class HttpRequestURL {
      * @param httpMethod
      * @param timeout
      */
-    private HttpRequestURL(String baseUrl, int httpMethod, int timeout) {
+    protected HttpRequestURL(String baseUrl, int httpMethod, int timeout) {
         this(baseUrl, httpMethod, timeout, false);
     }
 
-    private HttpRequestURL(String baseUrl, int httpMethod, boolean fromCache) {
+    protected HttpRequestURL(String baseUrl, int httpMethod, boolean fromCache) {
         this(baseUrl, httpMethod, DEFAULT_TIME_OUT, fromCache);
     }
 
-    private HttpRequestURL(String baseUrl, int httpMethod, int timeout, boolean fromCache) {
+    protected HttpRequestURL(String baseUrl, int httpMethod, int timeout, boolean fromCache) {
         this.mBaseUrl = baseUrl;//server interface
         this.mHttpMethod = httpMethod;
         this.mTimeout = timeout;
@@ -71,11 +71,10 @@ public class HttpRequestURL {
 
     /**
      * all constant url is defined here
+     * eg:
      */
 
-    public static final HttpRequestURL GET_LECHENG_DEVICE_INFO = new HttpRequestURL(HttpConfig.API_URL + "lechange/deviceInfo", Request.Method.POST, false);
-    public static final HttpRequestURL GET_LECHENG_ALL_DEVICE = new HttpRequestURL(HttpConfig.API_URL + "lechange/getAllDeviceList", Request.Method.POST, false);
-    public static final HttpRequestURL GET_LECHENG_Token = new HttpRequestURL(HttpConfig.API_URL+"lechange/getTokenWithoutLogin", Request.Method.POST, false);
+    public static final HttpRequestURL LOGIN = new HttpRequestURL(HttpConfig.API_URL + "login", Request.Method.POST, false);
 
 
 }
