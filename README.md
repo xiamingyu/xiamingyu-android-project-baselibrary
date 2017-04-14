@@ -1,7 +1,7 @@
 # android-project-baselibrary
 if you want to init an android project,you can start with this quickly beyond you imagination.
 #### 简介：
-    这是一个android项目的library project，如果你要开发一个新项目，又不想费心去搭建框架，集成各种第三方库，这个库是一个很好的选择，你可以快速开始一个项目，并且提供了很多称手的封装，使用起来也是so easy。
+ ###### 这是一个android项目的library project，如果你要开发一个新项目，又不想费心去搭建框架，集成各种第三方库，这个库是一个很好的选择，你可以快速开始一个项目，并且提供了很多称手的封装，使用起来也是so easy。
 
 #### 使用说明：
 ###### 1.在Android Studio里面新建一个工程；
